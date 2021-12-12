@@ -21,6 +21,16 @@ class ProfessorDao
 
     public function findAll()
     {
+        $sql = 'SELECT `nome`,`dt_nascimento` FROM `tb_professor` ORDER BY `id_professor` ';
+        $stmt = Connection::getConnection()->prepare($sql);
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0):
+            $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $resultado;
+        else:
+            return [];
+        endif;
     }
 
     public function updateProfessor()
@@ -29,5 +39,9 @@ class ProfessorDao
 
     public function deleteId($id)
     {
-    }
+        $sql = 'DELETE FROM `tb_professor` where `id_professor` = ?';
+        $stmt = Connection::getConnection()->prepare($sql);
+        $stmt->bindValue(1,$id);
+        $stmt->execute();
+        }
 }
