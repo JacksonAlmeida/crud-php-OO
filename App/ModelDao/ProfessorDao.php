@@ -33,8 +33,14 @@ class ProfessorDao
         endif;
     }
 
-    public function updateProfessor()
+    public function updateProfessor(Professor $p)
     {
+        $sql = 'UPDATE `tb_professor` SET `nome`= ? ,`dt_nascimento`= ? WHERE ?';
+        $stmt = Connection::getConnection()->prepare($sql);
+        $stmt->bindValue(1, $p->getNome());
+        $stmt->bindValue(2, $p->getDtNascimento());
+        $stmt->bindValue(3, $p->getId());
+        $stmt->execute();
     }
 
     public function deleteId($id)
