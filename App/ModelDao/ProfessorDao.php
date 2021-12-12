@@ -21,7 +21,7 @@ class ProfessorDao
 
     public function findAll()
     {
-        $sql = 'SELECT `nome`,`dt_nascimento` FROM `tb_professor` ORDER BY `id_professor` ';
+        $sql = 'SELECT `id_professor`, `nome`,`dt_nascimento` FROM `tb_professor` ORDER BY `id_professor`';
         $stmt = Connection::getConnection()->prepare($sql);
         $stmt->execute();
 
