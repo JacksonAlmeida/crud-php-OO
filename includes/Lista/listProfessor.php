@@ -22,10 +22,8 @@ echo "<h2>Lista de Profressores</h2>";
                 $prof = new \App\Model\Professor;
 
                 foreach ($profDAO->findAll() as $prof) :
-                    //echo "id= " . $prof['id_professor'] . "<pre>" . "nome= " . $prof['nome'] . "<pre>" . "data de nascimento= " . $prof['dt_nascimento'] . "<hr>";
-                    //var_dump($prof);
                     echo "<tr>";
-                    echo "<td>" . $prof['id_professor'] . "</td>";
+                    echo "<td>" . $prof['id'] . "</td>";
                     echo "<td>" . $prof['nome'] . "</td>";
                     echo "<td>" . $prof['dt_nascimento'] . "</td>";
                     echo "<td>

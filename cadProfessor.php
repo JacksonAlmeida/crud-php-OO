@@ -14,6 +14,7 @@ if(isset($_POST['nome'], $_POST['dt_nascimento'])){
     $profDAO->createProfessor($prof);
 }
 
+
 include __DIR__.'/includes/Lista/listProfessor.php';
 include __DIR__.'/includes/Footer/index.php';
 
