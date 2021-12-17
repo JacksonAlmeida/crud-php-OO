@@ -21,7 +21,7 @@ class ProfessorDao
 
     public function findAll()
     {
-        $sql = 'SELECT `id_professor`, `nome`,`dt_nascimento` FROM `tb_professor` ORDER BY `id_professor`';
+        $sql = 'SELECT `id`, `nome`,`dt_nascimento` FROM `tb_professor` ORDER BY `id`';
         $stmt = Connection::getConnection()->prepare($sql);
         $stmt->execute();
 
@@ -35,7 +35,7 @@ class ProfessorDao
 
     public function updateProfessor(Professor $p)
     {
-        $sql = 'UPDATE `tb_professor` SET `nome`= ? ,`dt_nascimento`= ? WHERE ?';
+        $sql = 'UPDATE `tb_professor` SET `nome`= ? ,`dt_nascimento`= ? WHERE id = ?';
         $stmt = Connection::getConnection()->prepare($sql);
         $stmt->bindValue(1, $p->getNome());
         $stmt->bindValue(2, $p->getDtNascimento());
@@ -45,12 +45,13 @@ class ProfessorDao
 
     public function deleteId($id)
     {
-        $sql = 'DELETE FROM `tb_professor` where `id_professor` = ?';
+        $sql = 'DELETE FROM `tb_professor` where `id_professor` = id = ?';
         $stmt = Connection::getConnection()->prepare($sql);
         $stmt->bindValue(1,$id);
         $stmt->execute();
         }
 
+<<<<<<< HEAD
         public function findById($id)
         {
             $sql = 'SELECT `id_professor`, `nome`,`dt_nascimento` FROM `tb_professor` where `id_professor` = ?';
@@ -71,4 +72,13 @@ class ProfessorDao
         $stmt->bindValue(1,'%'.$busca.'%');
         $stmt->execute();
     }
+=======
+        public function findById($termo){
+
+            $sql = 'SELECT * FROM `tb_professor` WHERE `nome` LIKE ?';
+            $stmt = Connection::getConnection()->prepare($sql); 
+            $stmt->bindValue(1, "%".$termo."%");   
+            $stmt->execute();
+        }
+>>>>>>> 1c8f9e18a6c3066795611a762fd9e06572f374fb
 }

@@ -23,7 +23,7 @@ echo "<h2>Lista de Profressores</h2>";
 
                 foreach ($profDAO->findAll() as $prof) :
                     echo "<tr>";
-                    echo "<td>" . $prof['id_professor'] . "</td>";
+                    echo "<td>" . $prof['id'] . "</td>";
                     echo "<td>" . $prof['nome'] . "</td>";
                     echo "<td>" . $prof['dt_nascimento'] . "</td>";
                     echo "<td>
