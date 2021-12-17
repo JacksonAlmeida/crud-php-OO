@@ -32,7 +32,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/composer/cadProfessor.php">Professor</a>
                     <a class="dropdown-item" href="#">Aluno</a>
-                    <a class="dropdown-item" href="#">Curso</a>
+                    <a class="dropdown-item" href="/composer/cadCurso.php">Curso</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Separated link</a>
                 </div>

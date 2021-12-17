@@ -1,6 +1,5 @@
+<h2>Editar registro</h2>
 
-<br>
-<h2>Novo Professor</h2>
 <hr>
 <form method="POST" action="#">
     <div class="mb-3">
@@ -16,4 +15,3 @@
 <br>
 <hr>
 <br>
-

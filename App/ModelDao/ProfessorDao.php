@@ -50,4 +50,25 @@ class ProfessorDao
         $stmt->bindValue(1,$id);
         $stmt->execute();
         }
+
+        public function findById($id)
+        {
+            $sql = 'SELECT `id_professor`, `nome`,`dt_nascimento` FROM `tb_professor` where `id_professor` = ?';
+            $stmt = Connection::getConnection()->prepare($sql);
+            $stmt->bindValue(1,$id = $_GET['id_professor']);
+            $stmt->execute();
+            if($stmt->rowCount() > 0):
+                $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+                return $resultado;
+            else:
+                return [];
+            endif;
+            }
+
+    public function findByName($busca){
+        $sql = 'SELECT * FROM `tb_professor` WHERE `nome` LIKE `%$termo%`';
+        $stmt = Connection::getConnection()->prepare($sql);
+        $stmt->bindValue(1,'%'.$busca.'%');
+        $stmt->execute();
+    }
 }
