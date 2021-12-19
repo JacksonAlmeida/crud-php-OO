@@ -14,4 +14,5 @@
 </form>
 <br>
 <hr>
+<a class="btn btn-primary" href="/composer/cadProfessor.php">Voltar</a>
 <br>

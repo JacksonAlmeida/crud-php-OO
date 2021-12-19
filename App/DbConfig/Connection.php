@@ -13,7 +13,7 @@ class Connection
     {
 
         if (!isset(self::$conn)) :
-            self::$conn = new \PDO('mysql:host=localhost;dbname=projetouni;charset=utf8', 'root', '');
+            self::$conn = new \PDO('mysql:host=localhost;dbname=unimed;charset=utf8', 'root', '');
         endif;
         return self::$conn;
     }

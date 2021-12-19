@@ -25,10 +25,10 @@ class ProfessorDao
         $stmt = Connection::getConnection()->prepare($sql);
         $stmt->execute();
 
-        if($stmt->rowCount() > 0):
+        if ($stmt->rowCount() > 0) :
             $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $resultado;
-        else:
+        else :
             return [];
         endif;
     }
@@ -45,40 +45,9 @@ class ProfessorDao
 
     public function deleteId($id)
     {
-        $sql = 'DELETE FROM `tb_professor` where `id_professor` = id = ?';
+        $sql = 'DELETE FROM `tb_professor` where `id` = ?';
         $stmt = Connection::getConnection()->prepare($sql);
-        $stmt->bindValue(1,$id);
-        $stmt->execute();
-        }
-
-<<<<<<< HEAD
-        public function findById($id)
-        {
-            $sql = 'SELECT `id_professor`, `nome`,`dt_nascimento` FROM `tb_professor` where `id_professor` = ?';
-            $stmt = Connection::getConnection()->prepare($sql);
-            $stmt->bindValue(1,$id = $_GET['id_professor']);
-            $stmt->execute();
-            if($stmt->rowCount() > 0):
-                $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-                return $resultado;
-            else:
-                return [];
-            endif;
-            }
-
-    public function findByName($busca){
-        $sql = 'SELECT * FROM `tb_professor` WHERE `nome` LIKE `%$termo%`';
-        $stmt = Connection::getConnection()->prepare($sql);
-        $stmt->bindValue(1,'%'.$busca.'%');
+        $stmt->bindValue(1, $id);
         $stmt->execute();
     }
-=======
-        public function findById($termo){
-
-            $sql = 'SELECT * FROM `tb_professor` WHERE `nome` LIKE ?';
-            $stmt = Connection::getConnection()->prepare($sql); 
-            $stmt->bindValue(1, "%".$termo."%");   
-            $stmt->execute();
-        }
->>>>>>> 1c8f9e18a6c3066795611a762fd9e06572f374fb
 }
